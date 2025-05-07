@@ -1,0 +1,4 @@
+# Exclude the project virtual environment from image builds
+.venv
+container_info.yaml
+*.pipeline_component_root.yaml
