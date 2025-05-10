@@ -24,7 +24,7 @@ def get_git_info(path: str | None = None) -> GitInfo | None:
         return None
 
     # Get relative path and convert it to POSIX
-    relative_dir = pathlib.Path(path).relative_to(repo.working_tree_dir)
+    relative_dir = pathlib.Path(path).absolute().relative_to(repo.working_tree_dir)
     posix_relative_dir = relative_dir.as_posix()
     info = GitInfo(
         git_relative_dir=posix_relative_dir,

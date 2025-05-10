@@ -208,6 +208,7 @@ def components_regenerate_python_function_component(
 ) -> None:
     """Generate component.yaml from a Python function."""
     directory = directory or os.path.curdir
+    directory = os.path.abspath(directory)
     if container_image_from:
         container_image_from = os.path.join(directory, container_image_from)
     if module_path:
