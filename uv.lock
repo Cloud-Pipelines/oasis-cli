@@ -383,6 +383,7 @@ name = "shopify-oasis"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "click" },
     { name = "cloud-pipelines" },
     { name = "gitpython" },
     { name = "podman" },
@@ -398,6 +399,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "click", specifier = "<8.2.0" },
     { name = "cloud-pipelines", specifier = ">=0.23.2.4" },
     { name = "gitpython", specifier = ">=3.1.44" },
     { name = "podman", specifier = ">=5.4.0.1" },

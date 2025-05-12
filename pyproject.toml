@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.10"
 dependencies = [
+    "click<8.2.0",
     "cloud-pipelines>=0.23.2.4",
     "gitpython>=3.1.44",
     "podman>=5.4.0.1",
