@@ -214,9 +214,7 @@ def components_regenerate_python_function_component(
     if module_path:
         module_path = os.path.join(directory, module_path)
     if output_component_yaml_path:
-        output_component_yaml_path = os.path.join(
-            directory, output_component_yaml_path
-        )
+        output_component_yaml_path = os.path.join(directory, output_component_yaml_path)
     if dependencies_from:
         dependencies_from = os.path.join(directory, dependencies_from)
 
@@ -283,6 +281,9 @@ def components_regenerate_python_function_component(
     except:
         # TODO: Log
         pass
+
+    # Removing None annotations. Annotation values must be strings.
+    annotations = {k: v for k, v in annotations.items() if isinstance(v, str)}
 
     op = components.create_component_from_func(
         func=function,
