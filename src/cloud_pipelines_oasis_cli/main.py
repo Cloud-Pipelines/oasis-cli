@@ -211,10 +211,8 @@ def components_regenerate_python_function_component(
     directory = os.path.abspath(directory)
     if container_image_from:
         container_image_from = os.path.join(directory, container_image_from)
-    if module_path:
-        module_path = os.path.join(directory, module_path)
-    if output_component_yaml_path:
-        output_component_yaml_path = os.path.join(directory, output_component_yaml_path)
+    module_path = os.path.join(directory, module_path)
+    output_component_yaml_path = os.path.join(directory, output_component_yaml_path)
     if dependencies_from:
         dependencies_from = os.path.join(directory, dependencies_from)
 
