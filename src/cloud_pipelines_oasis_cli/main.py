@@ -269,6 +269,7 @@ def components_regenerate_python_function_component(
         "components new regenerate python-function-component": "true",
         "python_original_code_path": os.path.relpath(module_path, directory),
         "python_original_code": module_code,
+        "component_yaml_path": os.path.relpath(output_component_yaml_path, directory),
     }
 
     if dependencies:
