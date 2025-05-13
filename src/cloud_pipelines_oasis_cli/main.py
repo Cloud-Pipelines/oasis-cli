@@ -205,6 +205,7 @@ def components_regenerate_python_function_component(
     dependencies_from: str | None = None,
     directory: str | None = None,
     output_component_yaml_path: str = "component.yaml",
+    version: str | None = None,
 ) -> None:
     """Generate component.yaml from a Python function."""
     directory = directory or os.path.curdir
@@ -269,6 +270,8 @@ def components_regenerate_python_function_component(
         "python_original_code": module_code,
         "component_yaml_path": os.path.relpath(output_component_yaml_path, directory),
     }
+    if version:
+        annotations["version"] = version
 
     if dependencies:
         annotations["python_dependencies"] = json.dumps(dependencies)
