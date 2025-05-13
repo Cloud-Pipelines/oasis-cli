@@ -267,6 +267,7 @@ def components_regenerate_python_function_component(
         # "generated_at": _get_current_time_string(),
         "cloud_pipelines.net": "true",
         "components new regenerate python-function-component": "true",
+        "python_original_code_path": os.path.relpath(module_path, directory),
         "python_original_code": module_code,
     }
 
