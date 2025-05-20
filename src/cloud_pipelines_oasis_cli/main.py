@@ -20,6 +20,8 @@ from . import git
 
 CONTAINER_INFO_FILE_NAME = "oasis.pipeline_component_root.yaml"
 CONTAINER_IMAGE_NAME_KEY = "container_image_name"
+CONTAINER_PYTHON_SECTION_KEY = "python"
+CONTAINER_PYTHON_DEPENDENCIES_FROM_KEY = "dependencies_from"
 COMPONENT_YAML_FILE_NAME = "component.yaml"
 COMPONENT_YAML_TEMPLATE_FILE_NAME = "template.component.yaml"
 
@@ -225,6 +227,17 @@ def components_regenerate_python_function_component(
         with open(container_image_from, "r") as file:
             container_info: dict = yaml.safe_load(file)
         container_image = container_info.get(CONTAINER_IMAGE_NAME_KEY)
+        python_info: dict | None = container_info.get(CONTAINER_PYTHON_SECTION_KEY)
+        if python_info:
+            if not dependencies_from:
+                dependencies_from_rel = python_info.get(
+                    CONTAINER_PYTHON_DEPENDENCIES_FROM_KEY
+                )
+                if dependencies_from_rel:
+                    container_info_dir = os.path.dirname(container_image_from)
+                    dependencies_from = os.path.join(
+                        container_info_dir, dependencies_from_rel
+                    )
 
     if not container_image:
         container_image = f"python:{sys.version_info.major}.{sys.version_info.minor}"

@@ -1,0 +1,2 @@
+python:
+  dependencies_from: ./pyproject.toml
